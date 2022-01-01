@@ -169,6 +169,10 @@ all: $(BDIR)/debug/libsmtp.a          \
      $(BDIR)/release/example_html     \
      $(BDIR)/release/test_nossl
 
+	$(MKDIR) include
+	cp -p src/smtp.h include/smtp.h
+	cp -p $(BDIR)/release/libsmtp.a ./libsmtp.a
+
 clean:
 	$(SILENT) rm -rf $(BDIR)
 
@@ -184,7 +188,7 @@ doc $(BDIR)/doc/html/index.html: src/mailx.c               \
                                  test/test_cpp_wrapper.cpp \
                                  test/test_nossl.c         \
                                  doc.cfg | $(BDIR)/doc
-	$(SILENT) doxygen doc.cfg
+	# $(SILENT) doxygen doc.cfg
 
 gcov:
 	$(GCOV)
