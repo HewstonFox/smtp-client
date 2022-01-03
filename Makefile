@@ -68,18 +68,18 @@ ifeq ($(shell test $(GCC_VERSION_MAJOR) -ge 7 ; echo $$?), 0)
   CWARN.gcc += -Wstringop-overflow=4
 endif
 
-CWARN.gcc += -Wno-aggressive-loop-optimizations
-CWARN.gcc += -Wduplicated-cond
-CWARN.gcc += -Wjump-misses-init
-CWARN.gcc += -Wlogical-op
-CWARN.gcc += -Wnormalized=nfkc
-CWARN.gcc += -Wstack-usage=5000
-CWARN.gcc += -Wshift-overflow=2
-CWARN.gcc += -Wsync-nand
-CWARN.gcc += -Wtrampolines
+# CWARN.gcc += -Wno-aggressive-loop-optimizations
+# CWARN.gcc += -Wduplicated-cond
+# CWARN.gcc += -Wjump-misses-init
+# CWARN.gcc += -Wlogical-op
+# CWARN.gcc += -Wnormalized=nfkc
+# CWARN.gcc += -Wstack-usage=5000
+# CWARN.gcc += -Wshift-overflow=2
+# CWARN.gcc += -Wsync-nand
+# CWARN.gcc += -Wtrampolines
 ##CWARN.gcc += -Wunsafe-loop-optimizations
-CWARN.gcc += -Wunsuffixed-float-constants
-CWARN.gcc += -Wvector-operation-performance
+# CWARN.gcc += -Wunsuffixed-float-constants
+# CWARN.gcc += -Wvector-operation-performance
 
 CWARN.clang += -Weverything
 CWARN.clang += -Wno-format-nonliteral
@@ -169,7 +169,7 @@ all: $(BDIR)/debug/libsmtp.a          \
      $(BDIR)/release/example_html     \
      $(BDIR)/release/test_nossl
 
-	$(MKDIR) include
+	mkdir -p include
 	cp -p src/smtp.h include/smtp.h
 	cp -p $(BDIR)/release/libsmtp.a ./libsmtp.a
 
